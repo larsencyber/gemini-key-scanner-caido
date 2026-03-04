@@ -4,6 +4,8 @@ A [Caido](https://caido.io) plugin that passively detects Google API keys (`AIza
 
 ![caido-ui](./gemini-key-scanner-caido-ui.png)
 
+![caido-finding](/gemini-key-scanner-caido-finding.png)
+
 ## What it does
 
 - **Passive scan** — hooks every intercepted response and extracts `AIza[0-9A-Za-z_-]{35}` patterns
