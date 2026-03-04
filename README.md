@@ -20,7 +20,7 @@ A [Caido](https://caido.io) plugin that passively detects Google API keys (`AIza
 
 ## Background
 
-Google API keys (`AIza…`) were historically safe to embed in client-side code (Maps, Firebase, etc.). When the Gemini API is enabled on the same GCP project, those same public keys silently gain access to private Gemini endpoints — including uploaded files, cached data, and billable model usage. See [TruffleHog's research](https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules) for full details.
+Google API keys (`AIza…`) were historically safe to embed in client-side code (Maps, Firebase, etc). When the Gemini API is enabled on the same GCP project, those same public keys silently gain access to private Gemini endpoints, including uploaded files, cached data, and billable model usage. See [TruffleHog's research](https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules) for full details.
 
 ## Install
 
