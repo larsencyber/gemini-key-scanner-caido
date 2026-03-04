@@ -2,6 +2,8 @@
 
 A [Caido](https://caido.io) plugin that passively detects Google API keys (`AIza…`) in proxied HTTP responses and automatically verifies whether they have live Gemini API access.
 
+![caido-ui](./gemini-key-scanner-caido-ui.png)
+
 ## What it does
 
 - **Passive scan** — hooks every intercepted response and extracts `AIza[0-9A-Za-z_-]{35}` patterns
