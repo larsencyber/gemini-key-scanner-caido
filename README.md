@@ -1,10 +1,6 @@
-# Caido Plugin: Gemini-Key-Scanner
+# gemini-key-scanner
 
 A [Caido](https://caido.io) plugin that passively detects Google API keys (`AIza…`) in proxied HTTP responses and automatically verifies whether they have live Gemini API access.
-
-![caido-ui](./gemini-key-scanner-caido-ui.png)
-
-![caido-finding](/gemini-key-scanner-caido-finding.png)
 
 ## What it does
 
@@ -19,17 +15,25 @@ A [Caido](https://caido.io) plugin that passively detects Google API keys (`AIza
 | `ERROR` | Network failure during verification |
 
 - **Enumerates exposed data** — for accessible keys, also probes `/v1beta/files` and `/v1beta/cachedContents` to surface uploaded files and cached context
-- **Native Caido findings** — creates a finding with full description and remediation advice
+- **Native Caido findings** — creates a deduplicated finding with full description and remediation advice
 - **Manual check** — paste any key into the UI to verify it on demand
 
 ## Background
 
-Google API keys (`AIza…`) were historically safe to embed in client-side code (Maps, Firebase, etc). When the Gemini API is enabled on the same GCP project, those same public keys silently gain access to private Gemini endpoints, including uploaded files, cached data, and billable model usage. See [TruffleHog's research](https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules) for full details.
+Google API keys (`AIza…`) were historically safe to embed in client-side code (Maps, Firebase, etc.). When the Gemini API is enabled on the same GCP project, those same public keys silently gain access to private Gemini endpoints — including uploaded files, cached data, and billable model usage. See [TruffleHog's research](https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules) for full details.
 
 ## Install
 
-1. Build: `pnpm install && pnpm build` in this directory
-2. In Caido: **Plugins → Install from file** → select the generated `.zip`
+**From release zip:**
+1. Download the latest `.zip` from [Releases](../../releases)
+2. In Caido: **Plugins → Install from file** → select the zip
+
+**Build from source:**
+```bash
+pnpm install
+pnpm build
+```
+Then install the generated `.zip` via Caido's plugin manager.
 
 ## Credits
 
