@@ -7,12 +7,12 @@ A [Caido](https://caido.io) plugin that passively detects Google API keys (`AIza
 - **Passive scan** — hooks every intercepted response and extracts `AIza[0-9A-Za-z_-]{35}` patterns
 - **Verifies Gemini access** — probes `generativelanguage.googleapis.com/v1beta/models` and classifies each key:
 
-| Status | Meaning |
-|--------|---------|
-| `HIGH` | Key has active Gemini access with accessible models |
-| `MED` | Gemini API responds 200 but no models listed |
-| `NO ACCESS` | Key exists but has no Gemini permission (4xx) |
-| `ERROR` | Network failure during verification |
+| Finding | Meaning |
+|---------|---------|
+| `[HIGH] Exposed Google API Key with Active Gemini Access` | Key verified with accessible Gemini models |
+| `[MED] Google API Key — Gemini API Accessible (No Models)` | Gemini API responds 200 but no models listed |
+| `[INFO] Google API Key Found — No Gemini Access` | Key exists but has no Gemini permission (4xx) |
+| `[INFO] Google API Key Found — Verification Failed` | Network failure during verification |
 
 - **Enumerates exposed data** — for accessible keys, also probes `/v1beta/files` and `/v1beta/cachedContents` to surface uploaded files and cached context
 - **Native Caido findings** — creates a deduplicated finding with full description and remediation advice
