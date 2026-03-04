@@ -1,4 +1,4 @@
-# gemini-key-scanner
+# Caido Plugin: Gemini-Key-Scanner
 
 A [Caido](https://caido.io) plugin that passively detects Google API keys (`AIza…`) in proxied HTTP responses and automatically verifies whether they have live Gemini API access.
 
@@ -28,3 +28,11 @@ Google API keys (`AIza…`) were historically safe to embed in client-side code 
 
 1. Build: `pnpm install && pnpm build` in this directory
 2. In Caido: **Plugins → Install from file** → select the generated `.zip`
+
+3. ## Credits
+
+Thanks to [njcve](https://github.com/njcve) whose Burp Suite extension [gkey-burp](https://github.com/njcve/gkey-burp) was the inspiration for this Caido port.
+
+## License
+
+MIT
